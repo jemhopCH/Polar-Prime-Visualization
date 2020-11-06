@@ -1,11 +1,11 @@
 let radius;
 let theta;
-let toCalc = 50000
+let toCalc = 150000
 let primes;
 let size = 1;
 
 function setup() {
-  createCanvas(800,800);
+  createCanvas(displayWidth, displayHeight);
   primes = getPrimes(toCalc);
   //put origin point in center
   r = height * 0.45;
@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  translate(displayWidth, displayHeight);
+  translate(width/2, height/2);
   background(10);
   scale(size);
   //the for loop takes forever to fully create all of the circles, so it takes a really long time   //to fully generate so i might leave it overnight sometime
