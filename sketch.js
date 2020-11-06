@@ -1,11 +1,11 @@
 let radius;
 let theta;
-let toCalc = 150000
+let toCalc = 100000;
 let primes;
 let size = 1;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight * 0.8);
+  createCanvas(windowWidth, windowHeight * 0.7);
   primes = getPrimes(toCalc);
   //put origin point in center
   r = height * 0.45;
@@ -20,9 +20,9 @@ function setup() {
     current = primes[i];
     let x = current * cos(current);
     let y = current * sin(current);
-    //the horrific (5/exp(size)*2) is something i threw together to get exponential scaling
+    //the horrific (5/exp(size)*2) is something i threw together to get exponential           //scaling
     //with the zoom at roughly the right level
-    circle(x, y, (5/exp(size))*3)
+    circle(x, y, (5/exp(size))*6)
 
   }
 }
@@ -64,7 +64,7 @@ function mouseWheel(event) {
     let y = current * sin(current);
     //the horrific (5/exp(size)*2) is something i threw together to get exponential scaling
     //with the zoom at roughly the right level
-    circle(x, y, (5/exp(size))*3)
+    circle(x, y, (5/exp(size))*6)
   }
   //returning false to block page scrolling
   return false; 
