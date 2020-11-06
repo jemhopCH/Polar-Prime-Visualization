@@ -16,7 +16,7 @@ function setup() {
 }
 
 function draw() {
-  translate(width / 2, height / 2);
+  translate(displayWidth, displayHeight);
   background(10);
   scale(size);
   //the for loop takes forever to fully create all of the circles, so it takes a really long time   //to fully generate so i might leave it overnight sometime
