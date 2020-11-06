@@ -5,7 +5,7 @@ let primes;
 let size = 1;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight * 0.7);
+  createCanvas(windowWidth, windowHeight * 0.9);
   primes = getPrimes(toCalc);
   //put origin point in center
   r = height * 0.45;
