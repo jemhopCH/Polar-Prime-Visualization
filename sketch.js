@@ -5,21 +5,16 @@ let primes;
 let size = 1;
 
 function setup() {
-  createCanvas(displayWidth, displayHeight);
+  createCanvas(windowWidth, windowHeight * 0.8);
   primes = getPrimes(toCalc);
   //put origin point in center
   r = height * 0.45;
   theta = 0;
   noStroke();
   color(255,255,255)
-  scale(0.01)
-}
-
-function draw() {
-  translate(width/2, height/2);
+  frameRate(60);
   background(10);
-  scale(size);
-  //the for loop takes forever to fully create all of the circles, so it takes a really long time   //to fully generate so i might leave it overnight sometime
+  translate(width/2, height/2);
   for(var i = 0; i < toCalc; i++)
   {
     current = primes[i];
@@ -28,7 +23,12 @@ function draw() {
     //the horrific (5/exp(size)*2) is something i threw together to get exponential scaling
     //with the zoom at roughly the right level
     circle(x, y, (5/exp(size))*3)
+
   }
+}
+
+function draw() {
+  //even though draw does nothing, the code breaks if you remove it
 }
 
 function getPrimes(max) {
@@ -43,6 +43,7 @@ function getPrimes(max) {
                 sieve[j] = true;
             }
         }
+          
     }
     return primes;
   }
@@ -51,6 +52,20 @@ function mouseWheel(event) {
   //ternary to check if it was a scrolldown or scrollup
   //have to make zoom out by size/10 because size is represented by a value from 0 to 1
   event.delta >= 0 ? size-=size/10 : size+=size/10
+  
+  translate(width/2, height/2);
+  scale(size);
+  background(10);
+  //i do this only when the canvas gets zoomed out instead of in draw for performance reasons
+  for(var i = 0; i < toCalc; i++)
+  {
+    current = primes[i];
+    let x = current * cos(current);
+    let y = current * sin(current);
+    //the horrific (5/exp(size)*2) is something i threw together to get exponential scaling
+    //with the zoom at roughly the right level
+    circle(x, y, (5/exp(size))*3)
+  }
   //returning false to block page scrolling
   return false; 
   

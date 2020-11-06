@@ -1,7 +1,15 @@
 html, body {
   margin: 0;
+  background-color: rgb(10,10,10);
   padding: 0;
 }
+
+html,h1{
+  color: rgb(210,210,210);
+  margin-left: 20px;
+  font-family: verdana;
+}
 canvas {
+  
   display: block;
 }
